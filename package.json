@@ -1,0 +1,19 @@
+{
+  "name": "vite-microshops",
+  "private": true,
+  "workspaces": [
+    "host",
+    "products",
+    "checkout"
+  ],
+  "scripts": {
+    "dev": "concurrently -n host,products,checkout -c cyan,green,magenta \"npm run dev -w host\" \"npm run dev -w products\" \"npm run dev -w checkout\"",
+    "dev:host": "npm run dev -w host",
+    "dev:products": "npm run dev -w products",
+    "dev:checkout": "npm run dev -w checkout",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
